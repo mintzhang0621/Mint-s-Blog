@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Write My Blog</title>
+	<style>
+		body{
+			background-color:aliceblue;
+		}
+		h1{
+			text-align: center;
+			color:midnightblue;
+			font-family: Segoe, Segoe UI, DejaVu Sans, Trebuchet MS, Verdana," sans-serif";
+			line-height: 100px;
+		}
+		form{
+			margin-left: 100px;
+			margin-right: 100px;
+			font-family: Constantia, Lucida Bright, DejaVu Serif, Georgia, serif;
+			line-height: 50px;
+			font-size:20px;
+		}
+		.head{
+		background-color: #ABE4F5;
+		height:40px;
+		margin-top: 0px;
+		}
+		.headings{
+		margin:30px;
+		line-height: 30px;
+		}
+		.change{
+			margin: 120px;
+			position:relative;
+			width: 150px;
+			height: 30px;
+			border-radius: 8px;
+			border-bottom-color:lightblue;
+			background:lightblue;
+			transition-duration: 0.2s;
+		}
+		.change:hover {
+			opacity: 0.8;
+		}
+		#myForm{
+			border: 2px solid black;
+			margin-left:100px;
+			margin-right: 100px;
+		}
+		#copyRight{
+		line-height: 30px;
+		text-align: center;
+		background-color: #87D8EC;
+		}
+		a{
+		text-decoration: none;
+		color:black;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="head">
+		<a href = "Home page.html"><h class = "headings" >Home</h></a>
+		<a href = "my blog.html"><h class = "headings" >Create</h></a>
+		<a href = "countDown.html" style = "float: right;"><h class = "headings" >Wanna Study? Click here!</h></a>
+	</header>
+	<h1>Write My Blog<img src = "write.jpg" alt = "pen" width = "100px" style="float: right;"></h1>
+	<div id = "myForm">
+	<form>
+	<p id = "weather">Today's weather:
+		<input class = "weather" type = "radio">Sunny
+		<input class = "weather" type = "radio">Clowdy
+		<input class = "weather" type = "radio">Rainny
+		<input class = "weather" type = "radio">Snowy
+		<input class = "weather" type = "radio">Windy
+	</p>
+	<lable>Time:<input type = "time"></lable>
+	<label id = "date">Date:<input type = "date"></label>
+	<br>
+	<label id = "title">Title:<input type = "text" placeholder="Title"></label>
+	<br>
+	<textarea name = "blog" rows = "5" cols = "100" placeholder = "Your blog"></textarea><br>
+	<input type = "file"><br>
+	<button>Submit</button>
+	</form></div>
+	<div style="text-align: center;"><a href ="Home page.html"><button class = "change">Back to Homepage</button></a></div>
+	<div id = "copyRight"><footer>&copy; Copyright 2019</footer></div>
+</body>
+</html>

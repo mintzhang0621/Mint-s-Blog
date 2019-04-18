@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>midterm</title>
+
+	
+<style>
+	body{
+		background-color:#60A970;
+	}
+	.head{
+		background-color: #ABE4F5;
+		height:40px;
+		margin-top: 0px;
+	}
+	.headings{
+		margin:30px;
+		line-height: 30px;
+	}
+	section{
+		background-color: white;
+		margin-left: 110px;
+		margin-right: 110px;
+		padding-bottom: 20px;
+		border: solid;
+	}
+	#title{
+		position: relative;
+		text-align: center;
+		font-family:Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif";
+		font-size: 60px;
+		color:darkslategray;
+	}
+	.buttonDown , .buttonUp {
+		width:50px;
+		margin-left: 120px;
+	}
+	.buttonDown:hover {
+		opacity: 0.8;
+	}
+	.buttonUp:hover {
+		opacity: 0.8;
+	}
+	#buttonUpSet{
+		text-align: center;
+		margin-left: -150px;
+	}
+	#buttonDownSet{
+		text-align: center;
+		margin-left: -145px;
+	}
+	#time{
+		font-size: 115px;
+		position: relative;
+		text-align: center;
+		margin: 1px;
+		font-family:Consolas, Andale Mono, Lucida Console, Lucida Sans Typewriter, Monaco, Courier New, monospace;
+	}
+	#inputs{
+		position:relative;
+		text-align: center;
+		font-size: 20px;
+		font-family:Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;
+	}
+	#buttons{
+		text-align: center;
+	}
+	a{
+		text-decoration: none;
+		color:black;
+	}
+	.button{
+		position:relative;
+		width: 100px;
+		height: 90px;
+		border-radius: 8px;
+		border-bottom-color:darkgreen;
+		background:#36AD74;
+    	transition-duration: 0.2s;
+	}
+	.button:hover {
+		background-color:#399A67;
+		color: black;
+	}
+	#history{
+		position: fixed;
+		top:130px;
+		background-color:cornsilk;
+		opacity:0.8;
+		margin-right:30%;
+		width:80px;
+		height:300px;
+		overflow: auto;
+		color:darkslategray;
+		border:1px dashed #6B6B6B;
+	}
+	#history:hover {
+		background-color:cornsilk;
+		opacity: 1;
+	}
+</style>
+</head>
+
+<body>
+	<header class="head">
+		<a href = "Home page.html"><h class = "headings" >Home</h></a>
+		<a href = "my blog.html" ><h class = "headings" >Create</h></a>
+	</header>
+	<section>
+	<h2 id = "title">Count Down Timer</h2>
+	<div id = "buttonUpSet">
+	<img src = "up.jpg" alt = "buttonUp1" class = "buttonUp" id = "buttonUp1">
+	<img src = "up.jpg" alt = "buttonUp2" class = "buttonUp" id = "buttonUp2">
+	<img src = "up.jpg" alt = "buttonUp3" class = "buttonUp" id = "buttonUp3">
+	</div>
+	
+	<p id = "time"><span id = "hours">0</span>:<span id = "minutes">00</span>:<span id = "seconds">00</span></p>
+	
+	<div id = "buttonDownSet">
+	<img src = "down.jpg" alt = "buttonDown1" class = "buttonDown" id = "buttonDown1">
+	<img src = "down.jpg" alt = "buttonDown2" class = "buttonDown" id = "buttonDown2">
+	<img src = "down.jpg" alt = "buttonDown3" class = "buttonDown" id = "buttonDown3">
+	</div>
+	
+	<p id = "inputs">Input your time here: 
+	<input id = "hourInput" type = "number" min = "0" max = "59" placeholder="hours" >
+	: <input id = "minInput" type = "number" min = "0" max = "59" placeholder="mins">
+	: <input id = "secInput" type = "number" min = "0" max = "59" placeholder="secs">
+	<button class = "setTime" id = "ok">Ok</button>
+	</p>
+	
+	<div id = "buttons">
+	<button class = "button" id = "start">Start</button>
+	<button class = "button" id = "pause">Pause</button>
+	<button class = "button" id = "record">Record</button>
+	<button class = "button" id = "reset">Reset</button>
+	</div>
+	</section>
+	<ol id = "history">History:</ol>
+	<p style = "text-align: center">Design by Mint Zhang</p>
+<script>
+		
+		var buttonUp1 = document.getElementById("buttonUp1");
+		var buttonUp2 = document.getElementById("buttonUp2");
+		var buttonUp3 = document.getElementById("buttonUp3");
+		var buttonDown1 = document.getElementById("buttonDown1");
+		var buttonDown2 = document.getElementById("buttonDown2");
+		var buttonDown3 = document.getElementById("buttonDown3");
+		
+		var reset = document.getElementById("reset");
+		var start = document.getElementById("start");
+		var pause = document.getElementById("pause");
+		var record = document.getElementById("record");
+		
+		var hours = document.getElementById("hours");
+		var minutes = document.getElementById("minutes");
+		var seconds = document.getElementById("seconds");
+		var hourInput = document.getElementById("hourInput");
+		var minInput = document.getElementById("minInput");
+		var secInput = document.getElementById("secInput");
+		var timesUp = document.getElementById("timesUp");
+		var time = document.getElementById("time");
+		var status = "countItDown";
+		var historyList = document.getElementById("history");
+		
+		var buttonUpClicked1 = function(){
+			hours.textContent = parseFloat(hours.textContent) + 1;
+
+		};
+		var buttonUpClicked2 = function(){
+			if(parseFloat(minutes.textContent) !== 59){
+				if(parseFloat(minutes.textContent) < 9){
+					minutes.textContent = parseFloat(minutes.textContent) + 1;
+					minutes.textContent = String(0) + String(minutes.textContent);
+				}
+				else{
+				minutes.textContent = parseFloat(minutes.textContent) + 1;
+				}
+			}
+			else{
+				minutes.textContent = String(0) + String(0);
+			}
+		};
+		var buttonUpClicked3 = function(){
+			if(parseFloat(seconds.textContent) !== 59){
+				if(parseFloat(seconds.textContent) < 9){
+					seconds.textContent = parseFloat(seconds.textContent) + 1;
+					seconds.textContent = String(0) + String(seconds.textContent);
+				}
+				else{
+				seconds.textContent = parseFloat(seconds.textContent) + 1;
+				}
+			}
+			else{
+				seconds.textContent = String(0) + String(0);
+			}
+		};
+		var buttonDownClicked1 = function(){
+			if(parseFloat(hours.textContent)-1 !== -1){
+			hours.textContent = parseFloat(hours.textContent) - 1;
+			}
+		};
+		var buttonDownClicked2 = function(){
+			if(parseFloat(minutes.textContent)-1 !== -1){
+				if(parseFloat(minutes.textContent) < 11){
+					minutes.textContent = parseFloat(minutes.textContent) - 1;
+					minutes.textContent = String(0) + String(minutes.textContent);
+				}
+				else{
+				minutes.textContent = parseFloat(minutes.textContent) - 1;
+				}
+			}
+			else{
+				minutes.textContent = 59;
+			}
+		};
+		var buttonDownClicked3 = function(){
+			if(parseFloat(seconds.textContent)-1 !== -1){
+				if(parseFloat(seconds.textContent) < 11){
+					seconds.textContent = parseFloat(seconds.textContent) - 1;
+					seconds.textContent = String(0) + String(seconds.textContent);
+				}
+				else{
+				seconds.textContent = parseFloat(seconds.textContent) - 1;
+				}
+			}
+			else{
+				seconds.textContent = 59;
+			}
+		};
+		
+		var setTime = function(){
+			hours.textContent = parseFloat(hourInput.value);
+			minutes.textContent = parseFloat(minInput.value);
+			seconds.textContent = parseFloat(secInput.value);
+			if (hourInput.value.length == 0){
+				hours.textContent = 0;
+			}
+			if (minInput.value.length == 0){
+				minutes.textContent = String(0) + String(0);
+			}
+			else if(parseFloat(minInput.value) < 10){
+				minutes.textContent = String(0) + String(minInput.value);
+			}
+			else if(parseFloat(minInput.value) > 59){
+				minutes.textContent = 59;
+			}
+			if (secInput.value.length == 0){
+				seconds.textContent = String(0) + String(0);
+			}
+			else if(parseFloat(secInput.value) < 10){
+				seconds.textContent = String(0) + String(secInput.value);
+			}
+			else if(parseFloat(secInput.value) > 59){
+				seconds.textContent = 59;
+			}
+		};	
+		var resetTime = function(){
+			hours.textContent = 0;
+			minutes.textContent = String(0) + String(0);
+			seconds.textContent = String(0) + String(0);
+		};	
+		var recording = function(){
+			var newTime = document.createElement("li");
+			var timeValue = document.createTextNode(time.textContent);
+			newTime.appendChild(timeValue);
+			historyList.appendChild(newTime);
+			
+		};
+	
+		var countDown = function(){
+			status = "countItDown";
+			if(parseFloat(hours.textContent) == 0 && parseFloat(minutes.textContent) == 0 && parseFloat(seconds.textContent) == 0){
+				window.clearInterval(timer);
+			}
+			else if (parseFloat(minutes.textContent) == 0 && parseFloat(seconds.textContent) == 0){
+				hours.textContent = parseFloat(hours.textContent) - 1;
+				minutes.textContent = 59;
+				seconds.textContent = 59;
+			}
+			else if (parseFloat(seconds.textContent) == 0){
+				minutes.textContent = parseFloat(minutes.textContent) - 1;
+				seconds.textContent = 59;
+			}
+			else{
+				seconds.textContent = parseFloat(seconds.textContent) - 1;
+			}
+			
+			if(parseFloat(minutes.textContent) < 10){
+				minutes.textContent = String(0) + parseFloat(minutes.textContent);
+			}
+			if(parseFloat(seconds.textContent) < 10){
+				seconds.textContent = String(0) + String(seconds.textContent);
+			}
+		};
+		var timesUp1 = function(e){
+			e.preventDefault();
+			timesUp.style.autoplay = "true";
+		};
+		
+	
+		buttonUp1.addEventListener("click", buttonUpClicked1);
+		buttonUp2.addEventListener("click", buttonUpClicked2);
+		buttonUp3.addEventListener("click", buttonUpClicked3);
+		buttonDown1.addEventListener("click", buttonDownClicked1);
+		buttonDown2.addEventListener("click", buttonDownClicked2);
+		buttonDown3.addEventListener("click", buttonDownClicked3);
+		
+		start.addEventListener("click", function(){
+			var timer = window.setInterval(countDown, 1000);
+			countDown(); 
+			var paused = function(){
+				window.clearInterval(timer);
+				status = "paused";
+			};
+			pause.addEventListener("click", paused);
+			record.addEventListener("click",recording);
+											  });
+			
+		
+		reset.addEventListener("click", resetTime);
+		ok.addEventListener("click", setTime);
+	
+
+	</script>
+</body>
+</html>

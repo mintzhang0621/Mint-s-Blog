@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Blog 4</title>
+<style>
+	body{
+		background-color: aliceblue;
+	}
+	h1{
+		font-family: Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;
+		text-align: center;
+		color:midnightblue;
+		line-height: 100px;
+	}
+	.head{
+		background-color: #ABE4F5;
+		height:40px;
+		margin-top: 0px;
+	}
+	.headings{
+		margin:30px;
+		line-height: 30px;
+	}
+	#myBlog{
+		position: fixed;
+		top:50px;
+		margin-left: 90%;
+		background-color:#B5D1EF;
+		opacity:0.8;
+		height:100px;
+		width: 100px;
+		font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif";
+	}
+	#video{
+		text-align: center;
+	}
+	.change{
+			margin: 120px;
+			position:relative;
+			width: 150px;
+			height: 30px;
+			border-radius: 8px;
+			border-bottom-color:lightblue;
+			background:lightblue;
+			transition-duration: 0.2s;
+	}
+	.change:hover {
+			opacity: 0.8;
+	}
+	a{
+		text-decoration: none;
+		color:black;
+	}
+	#blog{
+		margin-left:120px;
+		margin-right:120px;
+		font-family:Lucida Grande, Lucida Sans Unicode, Lucida Sans, DejaVu Sans, Verdana," sans-serif";
+		border:2px solid grey;
+		padding-left: 20px;
+		padding-right:20px;
+		background-color: white;
+	}
+	#copyRight{
+		line-height: 30px;
+		text-align: center;
+		background-color: #87D8EC;
+	}
+</style>
+</head>
+
+<body>
+	<header class="head">
+		<a href = "Home page.html"><h class = "headings" >Home</h></a>
+		<a href = "my blog.html"><h class = "headings" >Create</h></a>
+		<a href = "countDown.html" style = "float: right;"><h class = "headings" >Wanna Study? Click here!</h></a>
+	</header>
+	<h1>Playing Onmyoji!</h1>
+	<div id = "myBlog"><a href = "my blog.html" style = "text-decoration: none; color: black;"><p>Write my own blog!</p></a></div>
+	<div id = "blog">
+		<p>Date: April 3th, 2019</p>
+		<p>Weather: Rainy</p>
+		<div id = "video"><video width = "600px" controls = "controls">
+		<source src = "video.mp4" type = "video/mp4">
+		</video></div>
+	</div>
+	<div style = "text-align: center;">
+	<a href = "blog 3.html"><button class = "change" style = "float:left;">Last Blog</button></a>
+	<a href = "Home page.html"><button class = "change">Back to Homepage</button></a>
+	<a href = "blog 1.html"><button  class = "change" style = "float:right;">Next Blog</button></a>
+	</div>
+	<div id = "copyRight">
+	<a href = "http://yys.163.com/"><p>→Read more about Onmyoji←</p></a>
+	<footer>&copy; Copyright 2019</footer>
+	</div>
+</body>
+</html>
